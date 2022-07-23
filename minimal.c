@@ -67,26 +67,26 @@
 #define EPS 0.01
 
 int main() {
-	const double g = 9.81;
-	double NumberOfBalls; 
-	const double NumberOfHands = 2.0;
-	const double NumberOfArches = 2.0;
-	double MaxDwell;
-	double ThrowHeight;
-	double DwellTime = 0;
-	double Rmin;
-	for (MaxDwell = 0.150; MaxDwell <= 0.3; MaxDwell += 0.05) {
-		printf("Maximal hold time is : %.3f sec\n", MaxDwell);
-		for (NumberOfBalls = 3; NumberOfBalls < 16; NumberOfBalls += 2) {
-			for (ThrowHeight = 0.1; ThrowHeight <= 25.0; ThrowHeight += 0.01) {
-				Rmin = NumberOfBalls / NumberOfHands - (NumberOfBalls - 1.0) / NumberOfArches;
-				DwellTime = (sqrt(8 * ThrowHeight / g) * Rmin) / (NumberOfBalls / NumberOfHands - Rmin);
-				if ((DwellTime - MaxDwell) <= EPS && (DwellTime - MaxDwell) >= 0) {
-					printf("\tNumber of balls = %2.f | Minimal throw height = %.2f m\n", NumberOfBalls, ThrowHeight);
-					break;
-				}
-			}
+    const double g = 9.81;
+    double NumberOfBalls; 
+    const double NumberOfHands = 2.0;
+    const double NumberOfArches = 2.0;
+    double MaxDwell;
+    double ThrowHeight;
+    double DwellTime = 0;
+    double Rmin;
+    for (MaxDwell = 0.150; MaxDwell <= 0.3; MaxDwell += 0.05) {
+	printf("Maximal hold time is : %.3f sec\n", MaxDwell);
+	for (NumberOfBalls = 3; NumberOfBalls < 16; NumberOfBalls += 2) {
+	    for (ThrowHeight = 0.1; ThrowHeight <= 25.0; ThrowHeight += 0.01) {
+		Rmin = NumberOfBalls / NumberOfHands - (NumberOfBalls - 1.0) / NumberOfArches;
+		DwellTime = (sqrt(8 * ThrowHeight / g) * Rmin) / (NumberOfBalls / NumberOfHands - Rmin);
+		if ((DwellTime - MaxDwell) <= EPS && (DwellTime - MaxDwell) >= 0) {
+		    printf("\tNumber of balls = %2.f | Minimal throw height = %.2f m\n", NumberOfBalls, ThrowHeight);
+		    break;
 		}
+	    }
 	}
-	return 0;
+    }
+    return 0;
 }
