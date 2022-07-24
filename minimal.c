@@ -1,4 +1,4 @@
-	/* Claude Shannon's Theorem #I:
+	/* Theorem #I:
 	 * 
 	 * (F + D) / (V + D) = B / H,  or in our case
 	 * (FlightTime + DwellTime) / (EmptyTime + DwellTime) = NumberOfBalls / NumberOfHands
